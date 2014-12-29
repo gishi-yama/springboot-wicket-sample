@@ -51,4 +51,9 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+# build target
 /target/
+
+# OS system
+.DS_Store
+Thumbs.db
