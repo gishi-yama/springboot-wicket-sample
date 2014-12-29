@@ -35,7 +35,7 @@ public class FooPageTest {
 		sut.getApplication().getComponentInstantiationListeners()
 				.add(new SpringComponentInjector(sut.getApplication(), applicationContextMock));
 		IBarService mock = mock(IBarService.class);
-		when(mock.createMessage()).thenReturn("it's mocked!");
+		when(mock.createMessage()).thenReturn("it is mocked!");
 		applicationContextMock.putBean("barService", mock);
 	}
 
@@ -43,7 +43,7 @@ public class FooPageTest {
 	public void test() {
 		sut.startPage(FooPage.class);
 		sut.assertRenderedPage(FooPage.class);
-		sut.assertLabel("label", "Hello, Spring Boot + Wicket!");
+		sut.assertLabel("label", "it is mocked!");
 	}
 
 }
