@@ -31,9 +31,9 @@ public class WicketApplication extends WebApplication {
 		super.init();
 		getRequestCycleSettings().setResponseRequestEncoding(CharEncoding.UTF_8);
 		getMarkupSettings().setDefaultMarkupEncoding(CharEncoding.UTF_8);
-		
 		getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext));
 		mountPage("/FooPage", FooPage.class);
 	}
+	
 
 }
