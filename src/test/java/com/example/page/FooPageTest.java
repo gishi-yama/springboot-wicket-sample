@@ -21,7 +21,6 @@ import com.example.service.IBarService;
 public class FooPageTest {
 		
 	@RunWith(SpringJUnit4ClassRunner.class)
-	@DirtiesContext 
 	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
 	public static class モックありテスト {
 
@@ -42,6 +41,7 @@ public class FooPageTest {
 		}
 
 		@Test
+		@DirtiesContext 
 		public void FooPageが表示される() {
 			sut.startPage(FooPage.class);
 			sut.assertRenderedPage(FooPage.class);
@@ -51,7 +51,6 @@ public class FooPageTest {
 	}
 
 	@RunWith(SpringJUnit4ClassRunner.class)
-	@DirtiesContext 
 	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
 	public static class モックなしテスト {
 
@@ -65,6 +64,7 @@ public class FooPageTest {
 		}
 
 		@Test
+		@DirtiesContext 
 		public void FooPageが表示される() {
 			sut.startPage(FooPage.class);
 			sut.assertRenderedPage(FooPage.class);
