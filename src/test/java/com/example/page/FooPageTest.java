@@ -23,7 +23,7 @@ public class FooPageTest {
 	@RunWith(SpringJUnit4ClassRunner.class)
 	@DirtiesContext 
 	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
-	public static class MockingTest {
+	public static class モックありテスト {
 
 		@Autowired
 		private WicketApplication wicketApplication;
@@ -42,7 +42,7 @@ public class FooPageTest {
 		}
 
 		@Test
-		public void test() {
+		public void FooPageが表示される() {
 			sut.startPage(FooPage.class);
 			sut.assertRenderedPage(FooPage.class);
 			sut.assertLabel("label", "it is mocked!");
@@ -53,7 +53,7 @@ public class FooPageTest {
 	@RunWith(SpringJUnit4ClassRunner.class)
 	@DirtiesContext 
 	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
-	public static class UnMockingTest {
+	public static class モックなしテスト {
 
 		@Autowired
 		private WicketApplication wicketApplication;
@@ -65,7 +65,7 @@ public class FooPageTest {
 		}
 
 		@Test
-		public void test() {
+		public void FooPageが表示される() {
 			sut.startPage(FooPage.class);
 			sut.assertRenderedPage(FooPage.class);
 			sut.assertLabel("label", "Hello, Spring Boot + Wicket!");
