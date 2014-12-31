@@ -1,4 +1,5 @@
 package com.example.page;
+
 import static org.mockito.Mockito.*;
 
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
@@ -19,7 +20,7 @@ import com.example.service.IBarService;
 
 @RunWith(Enclosed.class)
 public class FooPageTest {
-		
+
 	@RunWith(SpringJUnit4ClassRunner.class)
 	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
 	public static class モックありテスト {
@@ -36,18 +37,18 @@ public class FooPageTest {
 			sut.getApplication().getComponentInstantiationListeners()
 					.add(new SpringComponentInjector(sut.getApplication(), applicationContextMock));
 			IBarService mock = mock(IBarService.class);
-			when(mock.createMessage()).thenReturn("it is mocked!");
+			when(mock.fetchMessage()).thenReturn("it is mocked!");
 			applicationContextMock.putBean("barService", mock);
 		}
 
 		@Test
-		@DirtiesContext 
+		@DirtiesContext
 		public void FooPageが表示される() {
 			sut.startPage(FooPage.class);
 			sut.assertRenderedPage(FooPage.class);
 			sut.assertLabel("label", "it is mocked!");
 		}
-		
+
 	}
 
 	@RunWith(SpringJUnit4ClassRunner.class)
@@ -64,7 +65,7 @@ public class FooPageTest {
 		}
 
 		@Test
-		@DirtiesContext 
+		@DirtiesContext
 		public void FooPageが表示される() {
 			sut.startPage(FooPage.class);
 			sut.assertRenderedPage(FooPage.class);

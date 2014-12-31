@@ -14,7 +14,7 @@ public class FooPage extends WebPage {
 	private IBarService barService;
 
 	public FooPage() {
-		this.add(new Label("label", Model.of(barService.createMessage())));
+		this.add(new Label("label", Model.of(barService.fetchMessage())));
 	}
 
 }
