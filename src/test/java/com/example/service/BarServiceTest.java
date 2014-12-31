@@ -13,12 +13,11 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.example.WebInitializer;
-import com.example.WicketApplication;
+import com.example.DemoApplication;
 import com.example.repository.IBazDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
+@ContextConfiguration(classes = { DemoApplication.class })
 public class BarServiceTest {
 
 	@InjectMocks
@@ -28,7 +27,7 @@ public class BarServiceTest {
 	private IBazDao dao;
 
 	@Before
-	public void init() {
+	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
 
