@@ -1,6 +1,4 @@
-Wicket Spring Boot Sample
-==============
+Spring Boot + Apache Wicket Sample Application
+=====
 
-Sample Maven project of Spring Boot with a built-in Apache Wicket.
-
-This project was implemented using [Pentadrago/spring-boot-example-wicket](https://github.com/Pentadrago/spring-boot-example-wicket) as a reference.
+The project is implemented using [Pentadrago/spring-boot-example-wicket](https://github.com/Pentadrago/spring-boot-example-wicket) as a reference.
