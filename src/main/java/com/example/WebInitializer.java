@@ -33,8 +33,6 @@ public class WebInitializer implements ServletContextInitializer {
 			@Override
 			public void onStartup(ServletContext ctx) throws ServletException {
 				ctx.setSessionTrackingModes(Stream.of(SessionTrackingMode.COOKIE).collect(Collectors.toSet()));
-				ctx.getSessionCookieConfig().setHttpOnly(true);
-				ctx.getSessionCookieConfig().setSecure(true);
 			}
 		};
 	}
