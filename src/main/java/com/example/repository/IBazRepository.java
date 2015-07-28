@@ -1,7 +1,7 @@
 package com.example.repository;
 
 
-public interface IBazDao {
+public interface IBazRepository {
 	
 	public String fetchMessage();
 	

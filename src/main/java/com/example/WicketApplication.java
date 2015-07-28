@@ -14,26 +14,28 @@ import com.example.page.FooPage;
 @SpringBootApplication
 public class WicketApplication extends WebApplication {
 
-	@Autowired
-	private ApplicationContext applicationContext;
+  @Autowired
+  private ApplicationContext applicationContext;
 
-	@Override
-	public Class<? extends WebPage> getHomePage() {
-		return FooPage.class;
-	}
+  @Override
+  public Class<? extends WebPage> getHomePage() {
+    return FooPage.class;
+  }
 
-	public static void main(String[] args) {
-		SpringApplication.run(WicketApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(WicketApplication.class, args);
+  }
 
-	@Override
-	public void init() {
-		super.init();
-		getRequestCycleSettings().setResponseRequestEncoding(CharEncoding.UTF_8);
-		getMarkupSettings().setDefaultMarkupEncoding(CharEncoding.UTF_8);
-		getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext));
-		mountPage("/FooPage", FooPage.class);
-	}
-	
+  @Override
+  public void init() {
+    super.init();
+    getRequestCycleSettings().setResponseRequestEncoding(CharEncoding.UTF_8);
+    getMarkupSettings().setDefaultMarkupEncoding(CharEncoding.UTF_8);
+    getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext));
+  }
+
+  public void mountPages() {
+    mountPage("/FooPage", FooPage.class);
+  }
 
 }

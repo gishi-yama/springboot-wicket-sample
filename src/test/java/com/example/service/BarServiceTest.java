@@ -14,27 +14,27 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.DemoApplication;
-import com.example.repository.IBazDao;
+import com.example.repository.IBazRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DemoApplication.class })
 public class BarServiceTest {
 
-	@InjectMocks
-	private BarService sut;
+  @InjectMocks
+  private BarService sut;
 
-	@Mock
-	private IBazDao dao;
+  @Mock
+  private IBazRepository dao;
 
-	@Before
-	public void setUp() {
-		MockitoAnnotations.initMocks(this);
-	}
+  @Before
+  public void setUp() {
+    MockitoAnnotations.initMocks(this);
+  }
 
-	@Test
-	public void fetchMessageでBazDAOのfetchMessageの返値を返す() {
-		when(sut.fetchMessage()).thenReturn("OK");
-		assertThat(sut.fetchMessage(), is("OK"));
-	}
+  @Test
+  public void fetchMessageでBazDAOのfetchMessageの返値を返す() {
+    when(sut.fetchMessage()).thenReturn("OK");
+    assertThat(sut.fetchMessage(), is("OK"));
+  }
 
 }

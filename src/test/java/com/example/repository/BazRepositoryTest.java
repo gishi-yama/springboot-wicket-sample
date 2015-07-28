@@ -15,10 +15,10 @@ import com.example.DemoApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DemoApplication.class })
-public class BazDaoTest {
+public class BazRepositoryTest {
 
 	@InjectMocks
-	private BazDao sut;
+	private BazRepository sut;
 
 	@Before
 	public void setUp() {

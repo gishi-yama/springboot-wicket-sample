@@ -17,24 +17,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class WebInitializer implements ServletContextInitializer {
 
-	@Override
-	public void onStartup(ServletContext context) throws ServletException {
-		FilterRegistration filter = context.addFilter("wicket-filter", WicketFilter.class);
-		filter.setInitParameter(WicketFilter.APP_FACT_PARAM, SpringWebApplicationFactory.class.getName());
-		filter.setInitParameter("applicationBean", "wicketApplication");
-		filter.setInitParameter(WicketFilter.FILTER_MAPPING_PARAM, "/*");
-		filter.addMappingForUrlPatterns(null, false, "/*");
-		filter.setInitParameter("configuration", "development");
-	}
+  @Override
+  public void onStartup(ServletContext context) throws ServletException {
+    FilterRegistration filter = context.addFilter("wicket-filter", WicketFilter.class);
+    filter.setInitParameter(WicketFilter.APP_FACT_PARAM, SpringWebApplicationFactory.class.getName());
+    filter.setInitParameter("applicationBean", "wicketApplication");
+    filter.setInitParameter(WicketFilter.FILTER_MAPPING_PARAM, "/*");
+    filter.addMappingForUrlPatterns(null, false, "/*");
+    filter.setInitParameter("configuration", "development");
+  }
 
-	@Bean
-	public ServletContextInitializer servletContextInitializer() {
-		return new ServletContextInitializer() {
-			@Override
-			public void onStartup(ServletContext ctx) throws ServletException {
-				ctx.setSessionTrackingModes(Stream.of(SessionTrackingMode.COOKIE).collect(Collectors.toSet()));
-			}
-		};
-	}
+  @Bean
+  public ServletContextInitializer servletContextInitializer() {
+    return new ServletContextInitializer() {
+      @Override
+      public void onStartup(ServletContext ctx) throws ServletException {
+        ctx.setSessionTrackingModes(Stream.of(SessionTrackingMode.COOKIE).collect(Collectors.toSet()));
+      }
+    };
+  }
 
 }

@@ -5,9 +5,9 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 public class WarInitializer extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(WicketApplication.class);
-	}
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    return application.sources(WicketApplication.class);
+  }
 
 }

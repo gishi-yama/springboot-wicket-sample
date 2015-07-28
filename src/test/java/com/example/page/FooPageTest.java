@@ -21,56 +21,56 @@ import com.example.service.IBarService;
 @RunWith(Enclosed.class)
 public class FooPageTest {
 
-	@RunWith(SpringJUnit4ClassRunner.class)
-	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
-	public static class モックありテスト {
+  @RunWith(SpringJUnit4ClassRunner.class)
+  @ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
+  public static class モックありテスト {
 
-		@Autowired
-		private WicketApplication wicketApplication;
-		private ApplicationContextMock applicationContextMock;
-		private WicketTester sut;
+    @Autowired
+    private WicketApplication wicketApplication;
+    private ApplicationContextMock applicationContextMock;
+    private WicketTester sut;
 
-		@Before
-		public void setUp() throws Exception {
-			sut = new WicketTester(wicketApplication);
-			applicationContextMock = new ApplicationContextMock();
-			sut.getApplication().getComponentInstantiationListeners()
-					.add(new SpringComponentInjector(sut.getApplication(), applicationContextMock));
-			IBarService mock = mock(IBarService.class);
-			when(mock.fetchMessage()).thenReturn("it is mocked!");
-			applicationContextMock.putBean("barService", mock);
-		}
+    @Before
+    public void setUp() throws Exception {
+      sut = new WicketTester(wicketApplication);
+      applicationContextMock = new ApplicationContextMock();
+      sut.getApplication().getComponentInstantiationListeners()
+          .add(new SpringComponentInjector(sut.getApplication(), applicationContextMock));
+      IBarService mock = mock(IBarService.class);
+      when(mock.fetchMessage()).thenReturn("it is mocked!");
+      applicationContextMock.putBean("barService", mock);
+    }
 
-		@Test
-		@DirtiesContext
-		public void FooPageが表示される() {
-			sut.startPage(FooPage.class);
-			sut.assertRenderedPage(FooPage.class);
-			sut.assertLabel("label", "it is mocked!");
-		}
+    @Test
+    @DirtiesContext
+    public void FooPageが表示される() {
+      sut.startPage(FooPage.class);
+      sut.assertRenderedPage(FooPage.class);
+      sut.assertLabel("label", "it is mocked!");
+    }
 
-	}
+  }
 
-	@RunWith(SpringJUnit4ClassRunner.class)
-	@ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
-	public static class モックなしテスト {
+  @RunWith(SpringJUnit4ClassRunner.class)
+  @ContextConfiguration(classes = { WebInitializer.class, WicketApplication.class })
+  public static class モックなしテスト {
 
-		@Autowired
-		private WicketApplication wicketApplication;
-		private WicketTester sut;
+    @Autowired
+    private WicketApplication wicketApplication;
+    private WicketTester sut;
 
-		@Before
-		public void setUp() throws Exception {
-			sut = new WicketTester(wicketApplication);
-		}
+    @Before
+    public void setUp() throws Exception {
+      sut = new WicketTester(wicketApplication);
+    }
 
-		@Test
-		@DirtiesContext
-		public void FooPageが表示される() {
-			sut.startPage(FooPage.class);
-			sut.assertRenderedPage(FooPage.class);
-			sut.assertLabel("label", "Hello, Spring Boot + Wicket!");
-		}
-	}
+    @Test
+    @DirtiesContext
+    public void FooPageが表示される() {
+      sut.startPage(FooPage.class);
+      sut.assertRenderedPage(FooPage.class);
+      sut.assertLabel("label", "Hello, Spring Boot + Wicket!");
+    }
+  }
 
 }
