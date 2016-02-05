@@ -1,7 +1,7 @@
 wicket-on-springboot
 =====
 
-Apache Wicket is running on spring-boot
+Apache Wicket is running on Spring-Boot.
 
 The project has used precedent projects as a reference guide for implementation:
 
