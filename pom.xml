@@ -4,12 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>springboot-wicket-sample</artifactId>
+  <artifactId>wicket-on-spring-boot</artifactId>
   <version>1.0-SNAPSHOT</version>
   <!-- If you build war file, change the element from jar to war. -->
   <packaging>jar</packaging>
 
-  <name>springboot-wicket-sample</name>
+  <name>wicket-on-spring-boot</name>
   <url>https://github.com/gishi-yama/</url>
 
   <properties>
