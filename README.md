@@ -1,4 +1,4 @@
-wicket-on-springboot
+wicket-on-spring-boot
 =====
 
 Apache Wicket is running on Spring-Boot.
